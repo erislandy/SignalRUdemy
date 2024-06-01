@@ -51,6 +51,7 @@ namespace SignalRUdemy
             app.MapHub<HouseGroupHub>("hub/houseGroup");
             app.MapHub<NotificationHub>("hub/notification");
             app.MapHub<ChatHub>("hub/chat");
+            app.MapHub<OrderHub>("hub/order");
             app.MapRazorPages();
 
             app.Run();
