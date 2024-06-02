@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using SignalRUdemy.Data;
 using SignalRUdemy.Hubs;
 using SignalRUdemy.Models;
+using SignalRUdemy.Models.ViewModel;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace SignalRUdemy.Controllers
 {
@@ -62,6 +65,19 @@ namespace SignalRUdemy.Controllers
         {
             return View();
         }
+        [Authorize]
+        public IActionResult Chat()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ChatVM chatVm = new()
+            {
+                Rooms = _context.ChatRooms.ToList(),
+                MaxRoomAllowed = 4,
+                UserId = userId,
+            };
+            return View(chatVm);
+        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
