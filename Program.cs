@@ -50,7 +50,7 @@ namespace SignalRUdemy
             app.MapHub<DeathlyHallowHub>("/hub/deathlyHallow");
             app.MapHub<HouseGroupHub>("hub/houseGroup");
             app.MapHub<NotificationHub>("hub/notification");
-            app.MapHub<ChatHub>("hub/chat");
+            app.MapHub<ChatHub>("hub/basicchat");
             app.MapHub<OrderHub>("hub/order");
             app.MapRazorPages();
 

@@ -1,5 +1,5 @@
 ﻿
-var connectionChat = new signalR.HubConnectionBuilder().withUrl("/hub/chat").build();
+var connectionChat = new signalR.HubConnectionBuilder().withUrl("/hub/basicchat").build();
 
 document.getElementById("sendMessage").disabled = true;
 
