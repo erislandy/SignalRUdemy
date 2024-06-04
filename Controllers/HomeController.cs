@@ -45,6 +45,7 @@ namespace SignalRUdemy.Controllers
             };
             return View(chatVm);
         }
+
         public async Task<IActionResult> DeathlyHallow(string type)
         {
             if (SD.DealthyHalloRace.ContainsKey(type))
